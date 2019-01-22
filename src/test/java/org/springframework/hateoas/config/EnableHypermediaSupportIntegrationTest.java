@@ -477,7 +477,7 @@ public class EnableHypermediaSupportIntegrationTest {
 				ResourceSupport resourceSupport = new ResourceSupport();
 				resourceSupport.add(new Link("localhost").withSelfRel());
 
-				assertThatCode(() -> { //
+				assertThatThrownBy(() -> { //
 					assertThat(it.writeValueAsString(resourceSupport)) //
 							.isEqualTo("{\"_links\":{\"self\":{\"href\":\"localhost\"}}}");
 				});

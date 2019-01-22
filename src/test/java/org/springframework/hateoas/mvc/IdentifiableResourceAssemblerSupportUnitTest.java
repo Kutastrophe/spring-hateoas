@@ -81,7 +81,7 @@ public class IdentifiableResourceAssemblerSupportUnitTest extends TestUtils {
 		Optional<Link> selfLink = resource.getId();
 
 		assertThat(selfLink.map(Link::getHref)) //
-				.hasValueSatisfying(it -> assertThat(it.endsWith("/people/id")));
+				.hasValueSatisfying(it -> assertThat(it).endsWith("/people/id"));
 	}
 
 	/**
