@@ -156,10 +156,8 @@ public class HalFormsValidationIntegrationTest {
 			EMPLOYEES.put(newEmployeeId, employee);
 
 			try {
-				return ResponseEntity.noContent()
-						.location(
-								new URI(findOne(newEmployeeId).getLink(IanaLinkRelation.SELF.value()).map(link -> link.expand().getHref()).orElse("")))
-						.build();
+				return ResponseEntity.noContent().location(new URI(findOne(newEmployeeId).getLink(IanaLinkRelation.SELF.value())
+						.map(link -> link.expand().getHref()).orElse(""))).build();
 			} catch (URISyntaxException e) {
 				return ResponseEntity.badRequest().body(e.getMessage());
 			}
@@ -171,9 +169,13 @@ public class HalFormsValidationIntegrationTest {
 			EMPLOYEES.put(id, employee);
 
 			try {
-				return ResponseEntity.noContent()
-						.location(new URI(findOne(id).getLink(IanaLinkRelation.SELF.value()).map(link -> link.expand().getHref()).orElse("")))
-						.build();
+				return ResponseEntity //
+						.noContent() //
+						.location( //
+								new URI(findOne(id).getLink(IanaLinkRelation.SELF.value()) //
+										.map(link -> link.expand().getHref()) //
+										.orElse("")) //
+						).build();
 			} catch (URISyntaxException e) {
 				return ResponseEntity.badRequest().body(e.getMessage());
 			}
@@ -195,8 +197,13 @@ public class HalFormsValidationIntegrationTest {
 			EMPLOYEES.put(id, newEmployee);
 
 			try {
-				return ResponseEntity.noContent()
-						.location(new URI(findOne(id).getLink(IanaLinkRelation.SELF.value()).map(link -> link.expand().getHref()).orElse("")))
+				return ResponseEntity //
+						.noContent() //
+						.location( //
+								new URI(findOne(id) //
+										.getLink(IanaLinkRelation.SELF.value()) //
+										.map(link -> link.expand().getHref()) //
+										.orElse(""))) //
 						.build();
 			} catch (URISyntaxException e) {
 				return ResponseEntity.badRequest().body(e.getMessage());
