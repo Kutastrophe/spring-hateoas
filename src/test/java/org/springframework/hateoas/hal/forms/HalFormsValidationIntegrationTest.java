@@ -182,9 +182,7 @@ public class HalFormsValidationIntegrationTest {
 		@PatchMapping("/employees/{id}")
 		public ResponseEntity<?> partiallyUpdateEmployee(@RequestBody Employee employee, @PathVariable Integer id) {
 
-			Employee oldEmployee = EMPLOYEES.get(id);
-
-			Employee newEmployee = oldEmployee;
+			Employee newEmployee = EMPLOYEES.get(id);
 
 			if (employee.getName() != null) {
 				newEmployee = newEmployee.withName(employee.getName());

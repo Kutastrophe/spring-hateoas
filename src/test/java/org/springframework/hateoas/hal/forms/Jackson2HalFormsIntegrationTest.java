@@ -326,7 +326,7 @@ public class Jackson2HalFormsIntegrationTest extends AbstractJackson2Marshalling
 
 		CurieProvider provider = new DefaultCurieProvider("default", new UriTemplate("/doc{?rel}")) {
 			@Override
-			public Collection<? extends Object> getCurieInformation(Links links) {
+			public Collection<?> getCurieInformation(Links links) {
 				return Arrays.asList(new Curie("foo", "bar"), new Curie("bar", "foo"));
 			}
 		};
